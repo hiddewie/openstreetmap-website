@@ -111,13 +111,13 @@ class UserHelperTest < ActionView::TestCase
 
   def test_openid_logo
     logo = openid_logo
-    assert_match %r{^<img .* src="/images/openid_small.png" />$}, logo
+    assert_match %r{^<img .* src="/images/openid.svg" .* />$}, logo
   end
 
   def test_auth_button
     button = auth_button("google", "google")
-    img_tag = "<img alt=\"Log in with a Google OpenID\" class=\"rounded-3\" src=\"/images/google.svg\" width=\"36\" height=\"36\" />"
-    assert_equal("<a class=\"auth_button\" title=\"Log in with Google\" rel=\"nofollow\" data-method=\"post\" href=\"/auth/google\">#{img_tag}</a>", button)
+    img_tag = "<img alt=\"Log in with a Google OpenID\" class=\"rounded-1\" src=\"/images/google.svg\" width=\"24\" height=\"24\" />"
+    assert_equal("<a class=\"auth_button p-2 d-block\" title=\"Log in with Google\" rel=\"nofollow\" data-method=\"post\" href=\"/auth/google\">#{img_tag}</a>", button)
   end
 
   private

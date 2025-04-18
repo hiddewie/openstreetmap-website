@@ -79,7 +79,7 @@ time[title] {
   position: absolute;
   top: 0;
   right: 0;
-  background: image-url("menu-icon.png") no-repeat;
+  background: image-url("menu-icon.svg") no-repeat;
   background-size: 30px 30px;
   width: 30px;
   height: 30px;
@@ -457,11 +457,15 @@ body.small-nav {
   border-top: 0px !important;
 }
 
-.leaflet-popup-content-wrapper,
-.leaflet-popup-tip,
-.leaflet-contextmenu,
-.leaflet-contextmenu-item {
+.leaflet-popup-content-wrapper, .leaflet-popup-tip,
+.leaflet-contextmenu, .leaflet-contextmenu-item,
+.leaflet-control-attribution, .leaflet-control-scale-line {
   @extend .bg-body, .text-body;
+}
+
+.leaflet-control-attribution, .leaflet-control-scale-line {
+  @extend .bg-opacity-75;
+  text-shadow: none !important;
 }
 
 .leaflet-contextmenu-item.over {
@@ -480,6 +484,14 @@ body.small-nav {
   .leaflet-tile-container,
   .mapkey-table-entry td:first-child > * {
     filter: brightness(.8);
+  }
+
+  .leaflet-control-attribution a {
+    color: var(--bs-link-color);
+  }
+
+  .leaflet-control-scale-line {
+    @extend .border-light, .border-opacity-75;
   }
 }
 
@@ -554,7 +566,7 @@ header .search_forms,
 /* Rules for routing */
 
 div.direction {
-  background-image: image-url('routing-sprite.png');
+  background-image: image-url('routing-sprite.svg');
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;
@@ -710,7 +722,8 @@ tr.turn {
   bottom: 0;
 
   &.new-user-main {
-    background-image: image-url("sign-up-illustration.png");
+    background-image: image-url("sign-up-illustration.svg");
+    background-position-x: 50px;
   }
 
   &.confirm-main {
@@ -718,18 +731,7 @@ tr.turn {
   }
 
   &.new-user-terms {
-    background-image: image-url("terms-illustration.png");
-  }
-
-  &.new-user-arm {
-    height: 110px;
-    width: 130px;
-    left: 280px;
-    top: 180px;
-    background-image: image-url("sign-up-illustration-arm.png");
-    position: absolute;
-    z-index: 100;
-    pointer-events: none;
+    background-image: image-url("terms-illustration.svg");
   }
 }
 
@@ -888,7 +890,7 @@ div.secondary-actions {
 /* Rules for the "Welcome" page */
 .site-welcome, .site-fixthemap {
   .sprite {
-    background-image: image-url("welcome-sprite.png");
+    background-image: image-url("welcome-sprite.svg");
     background-size: 500px 250px;
     display: block;
   }
@@ -905,6 +907,7 @@ div.secondary-actions {
   .sprite.term {
     margin-right: 10px;
     vertical-align: middle;
+    display: inline-block;
   }
 
   .sprite.node {
@@ -996,6 +999,10 @@ div.secondary-actions {
       background-position: -45px -160px;
     }
   }
+}
+
+.auth-container {
+  max-width: 600px;
 }
 
 /* Rules for tabs inside secondary background sections */

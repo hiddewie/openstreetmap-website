@@ -1,7 +1,7 @@
 <header class="d-flex bg-body text-nowrap closed z-3">
   <h1 class="m-0 fw-semibold">
     <a href="<%= root_path %>" class="text-body-emphasis text-decoration-none geolink">
-      <%= image_tag "osm_logo.png", :srcset => image_path("osm_logo.svg"), :alt => t("layouts.logo.alt_text"), :width => 30, :height => 30, :class => "logo" %>
+      <%= image_tag "osm_logo.svg", :alt => t("layouts.logo.alt_text"), :width => 30, :height => 30, :class => "logo" %>
       <%= t "layouts.project_name.h1" %>
     </a>
   </h1>
@@ -104,7 +104,7 @@
           <%= link_to t("layouts.logout"), logout_path(:referer => request.fullpath), :method => "post", :class => "geolink dropdown-item" %>
         </div>
       </div>
-    <% else %>
+    <% elsif (controller_name != "users" and controller_name != "sessions") || action_name != "new" %>
       <div class="d-inline-flex btn-group login-menu" role="">
         <%= link_to t("layouts.log_in"), login_path(:referer => request.fullpath), :class => "geolink btn btn-outline-secondary" %>
         <%= link_to t("layouts.sign_up"), user_new_path, :class => "btn btn-outline-secondary" %>
